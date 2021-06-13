@@ -72,14 +72,14 @@ public class DemoController {
 	@PostConstruct
 	public void init() {
 		User user1 = new User();
-		user1.setName("島根　花子");
-		user1.setAddress("島根県松江市浜乃木1-2-3");
+		user1.setName("アルド");
+		user1.setAddress("バルオキー1-2-3");
 		user1.setTel("0852-12-1234");
 		repos.saveAndFlush(user1);
 
 		user1 = new User();
-		user1.setName("大阪　太郎");
-		user1.setAddress("大阪府豊中市本町1-2-3");
+		user1.setName("フィーネ");
+		user1.setAddress("コニウム1-2-3");
 		user1.setTel("06-123-7777");
 		repos.saveAndFlush(user1);
 	}
