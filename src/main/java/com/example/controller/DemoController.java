@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,6 +18,7 @@ import com.example.Entity.User;
 import com.example.repository.UserRepository;
 
 @Controller
+@RequestMapping
 public class DemoController {
 
 	@Autowired
@@ -57,7 +59,7 @@ public class DemoController {
 	@Transactional(readOnly=false)
 	public ModelAndView save(@ModelAttribute("formModel") User user) {
 		repos.saveAndFlush(user);
-		return new ModelAndView("redirect:users/list");
+		return new ModelAndView("redirect:/users/list");
 	}
 
 	/* 削除処理  */
@@ -65,7 +67,7 @@ public class DemoController {
 	@Transactional(readOnly=false)
 	public ModelAndView delete(@RequestParam int id) {
 		repos.deleteById(id);
-		return new ModelAndView("redirect:users/list");
+		return new ModelAndView("redirect:/users/list");
 	}
 	
 	/* 初期データ作成 */
